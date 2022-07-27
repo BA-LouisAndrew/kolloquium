@@ -7,7 +7,7 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
 
-    <title>reveal.js</title>
+    <title>Kolloquium - Louis Andrew</title>
 
     <link rel="stylesheet" href="dist/reset.css" />
     <link rel="stylesheet" href="dist/reveal.css" />
@@ -43,6 +43,10 @@
         }
         td {
           /* @apply border border-slate-600 border-solid; */
+        }
+
+        em {
+          @apply block mt-4 mb-8 text-gray-600;
         }
       }
 
@@ -111,6 +115,47 @@
         <section>
           <div class="wrapper">
             <h2>Table of Content</h2>
+
+            <ol>
+              <li><a href="#/2">Motivation</a></li>
+              <li><a href="#/3">Goal</a></li>
+              <li><a href="#/4">Analysis</a></li>
+              <li><a href="#/6">Use Cases</a></li>
+              <li><a href="#/7">User Stories</a></li>
+              <li><a href="#/8">System Architecture</a></li>
+              <li>
+                <a href="#/9">Software Architecture</a>
+              </li>
+              <li>
+                Sequences
+                <ul class="block mt-2">
+                  <li>
+                    <a href="#/10">
+                      Customer Validation on a Registration
+                      Event
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#/11">
+                      Notification on Suspicious Cases
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#/12">
+                      Managing Validation Rules
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#/13">
+                      Validation Real-Time Progress
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="#/14">Result</a></li>
+              <li><a href="#/15">Evaluation</a></li>
+              <li><a href="#/16">Outlook</a></li>
+            </ol>
           </div>
         </section>
 
@@ -175,7 +220,7 @@
 
         <section>
           <div class="wrapper">
-            <h2>Analysis - Fraud Detection Techniques</h2>
+            <h2>Analysis</h2>
             <ul>
               <li>
                 Fraud (#cite) detection techniques can be
@@ -199,9 +244,10 @@
             </ul>
           </div>
         </section>
+
         <section>
           <div class="wrapper">
-            <h2>Analysis - Fraud Detection Techniques</h2>
+            <h2>Analysis</h2>
             <ul>
               <li>
                 Project don't want to compete with them,
@@ -289,33 +335,66 @@
           <div class="wrapper">
             <h2>System Architecture</h2>
 
-            <img data-src="./assets/system.png" alt="" />
+            <div class="flex flex-col items-center">
+              <div class="mb-6">
+                A system architecture diagram describes each
+                component of the system and the interaction
+                between each component
+              </div>
+              <img data-src="./assets/system.png" alt="" />
+            </div>
           </div>
         </section>
 
         <section>
           <div class="wrapper">
-            <h2>System Architecture</h2>
+            <h2>Software Architecture</h2>
 
-            <img
-              data-src="./assets/sw-arc--updated.png"
-              alt=""
-              style="height: 300px; width: 434px"
-            />
+            <div class="flex flex-col items-center">
+              <div class="mb-6">
+                Software architecture diagram is created to
+                better visualize the structure, functions
+                and role of each component
+              </div>
+              <img
+                data-src="./assets/sw-arc--updated.png"
+                alt=""
+                style="
+                  height: 380px;
+                  width: 700px;
+                  transform: translateX(20px);
+                "
+              />
+            </div>
           </div>
         </section>
 
         <section>
-          <div class="wrapper">
+          <div class="wrapper items-center">
             <h2>
-              Sequence - Customer Validation on a
+              Sequence: Customer Validation on a
               Registration Event
             </h2>
+
+            <div>
+              <em>
+                “As a stakeholder, I want to verify
+                customer, so that the company can have more
+                confidence that the existing user base is
+                trustworthy“
+              </em>
+
+              By analyzing the use case listed above, the
+              possibility to trigger a validation process
+              after each new registration should be
+              implemented, so that the stakeholder can be
+              confident that the user base is trustworthy.
+            </div>
 
             <img
               data-src="./assets/sequence-registration.png"
               alt=""
-              style="height: 300px; width: 434px"
+              style="height: 200px; width: 334px"
             />
           </div>
         </section>
@@ -323,41 +402,123 @@
         <section>
           <div class="wrapper">
             <h2>
-              Sequence - Notification on Suspicious Cases
+              Sequence: Notification on Suspicious Cases
             </h2>
 
-            <img
-              data-src="./assets/sequence-notification.png"
-              alt=""
-              style="height: 390px; width: 536px"
-            />
+            <div>
+              <em>
+                “As an employee, I want to be notified when
+                a user seems suspicious, so that I can do
+                necessary actions accordingly“
+              </em>
+
+              By further examination of the use case listed
+              above, the following sequence should be
+              implemented:
+
+              <ul class="block mt-8">
+                <li>
+                  A validation process should be executed by
+                  first retrieving the rules created by
+                  multiple teams
+                </li>
+                <li>
+                  After a validation process is completed,
+                  the system should publish a message to a
+                  messaging system
+                </li>
+                <li>
+                  The messaging system should notify its
+                  consumers
+                </li>
+                <li>
+                  The message consumers can run certain
+                  actions independently if needed (such as
+                  sending an email to alert a team member)
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
 
+        <section class="flex justify-center">
+          <img
+            data-src="./assets/sequence-notification.png"
+            alt=""
+            style="height: 500px; width: 700px"
+          />
+        </section>
+
         <section>
-          <div class="wrapper">
-            <h2>Sequence - Managing Validation Rules</h2>
+          <div class="wrapper items-center">
+            <h2>Sequence: Managing Validation Rules</h2>
+
+            <div>
+              <em>
+                “As an employee, I want to manage my own
+                rule to validate users, so that I can use my
+                expertise to find suspicious customers as
+                efficiently as possible without the
+                communication overhead with other teams”
+              </em>
+
+              The user story listed above describes the
+              requirement of the system to provide the
+              possibility to handle all CRUD operations of a
+              validation rule.
+            </div>
 
             <img
               data-src="./assets/sequence-management.png"
               alt=""
-              style="height: 390px; width: 536px"
+              style="height: 300px; width: 400px"
             />
           </div>
         </section>
 
         <section>
           <div class="wrapper">
-            <h2>
-              Sequence - Validation Real-Time Progress
-            </h2>
+            <h2>Sequence: Validation Real-Time Progress</h2>
 
-            <img
-              data-src="./assets/sequence-pubsub.png"
-              alt=""
-              style="height: 390px; width: 536px"
-            />
+            <div>
+              Even though the user should receive a
+              notification on certain cases, there might be
+              times when a user wants to intentionally
+              monitor the progress of a validation process.
+              The sequence of such functionality will be as
+              follows:
+
+              <ul class="mt-8">
+                <li>
+                  The system receives a new validation event
+                  and runs the validation process
+                </li>
+                <li>
+                  The system provides a subscription
+                  endpoint that accepts a validation ID as
+                  the input
+                </li>
+                <li>
+                  The system can establish a long-lived HTTP
+                  connection to the client throught the
+                  subscription endpoint
+                </li>
+                <li>
+                  Whenever a validation rule evaluation is
+                  completed, the system sends a message to
+                  the client
+                </li>
+              </ul>
+            </div>
           </div>
+        </section>
+
+        <section class="flex justify-center">
+          <img
+            data-src="./assets/sequence-pubsub.png"
+            alt=""
+            style="height: 550px; width: 700px"
+          />
         </section>
 
         <section>
