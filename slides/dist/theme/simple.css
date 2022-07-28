@@ -22,7 +22,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   --r-block-margin: 20px;
   --r-heading-margin: 0 0 20px 0;
   /* --r-heading-font: News Cycle, Impact, sans-serif; */
-  --r-heading-color: #4a4;
+  /* --r-heading-color: #4a4; */
   --r-heading-line-height: 1.2;
   --r-heading-letter-spacing: normal;
   --r-heading-text-transform: none;
@@ -50,7 +50,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   font-family: var(--r-main-font);
   font-size: var(--r-main-font-size);
   font-weight: normal;
-  color: var(--r-main-color);
+  /* color: var(--r-main-color); */
 }
 
 .reveal ::selection {
@@ -81,7 +81,6 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 .reveal h5,
 .reveal h6 {
   margin: var(--r-heading-margin);
-  color: var(--r-heading-color);
   font-family: var(--r-heading-font);
   font-weight: var(--r-heading-font-weight);
   line-height: var(--r-heading-line-height);

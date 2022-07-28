@@ -62,7 +62,7 @@
 
         h1,
         h2 {
-          @apply font-serif;
+          @apply font-serif text-emerald-500;
         }
       }
 
@@ -92,6 +92,17 @@
       .evaluation .right {
         @apply col-span-3 border-b border-solid border-black;
       }
+
+      .slide-number {
+        transform: scale(1.5) translateX(-25%)
+          translateY(-25%);
+        background-color: transparent !important;
+      }
+
+      .slide-number a {
+        color: theme(colors.emerald.400) !important;
+        @apply font-bold;
+      }
     </style>
 
     <style>
@@ -105,16 +116,6 @@
       .header img {
         height: 50px;
         width: 208px;
-      }
-
-      .slide-number {
-        transform: scale(1.5) translateX(-25%)
-          translateY(-25%);
-        background-color: transparent !important;
-      }
-
-      .slide-number a {
-        color: green !important;
       }
     </style>
   </head>
@@ -152,6 +153,9 @@
               1. Supervisor: Prof. Dr. Christin Schmidt
             </span>
             <span>2. Supervisor: MSc. Tobias Dumke</span>
+            <span class="text-sm block mt-8"
+              >02.08.2022</span
+            >
           </div>
         </section>
 
@@ -196,15 +200,12 @@
                 </ul>
               </li>
               <li>
-                <a href="#/15">Additional Features</a>
+                <a href="#/15">Calculating a Fraud Score</a>
               </li>
-              <li>
-                <a href="#/16">Calculating a Fraud Score</a>
-              </li>
-              <li><a href="#/17">Evaluation</a></li>
-              <li>
-                <a href="#/18">Possible Improvements</a>
-              </li>
+              <li><a href="#/16">Evaluation</a></li>
+              <!-- <li>
+                <a href="#/17">Possible Improvements</a>
+              </li> -->
             </ol>
           </div>
         </section>
@@ -254,20 +255,20 @@
                   person or system for their own profit
                 </li>
                 <li>
-                  Fraud activity is a serious matter, as it
-                  impacts businesses, inflicting damage on
-                  the company's brand and its profit
+                  It impacts businesses, inflicting damage
+                  on the company's brand and its profit
                 </li>
                 <li>
-                  Fraud prevention is a serious matter, the
-                  US Federal Trade Commission (FTC) reported
-                  70% increase in fraud activities in 2021,
-                  compared to 2020 (#cite)
+                  The US Federal Trade Commission (FTC)
+                  reported 70% increase in fraud activities
+                  in 2021, compared to 2020 (#cite)
                 </li>
                 <li>
-                  Large businesses usually are built upon
-                  multiple teams that have their own
-                  responsibility and expertise
+                  This research project is aimed to help
+                  large businesses detect fraud activities.
+                  However, large businesses are usually
+                  built upon multiple teams that have their
+                  own responsibility and expertise
                 </li>
                 <li>
                   The independent teams have their own
@@ -298,10 +299,10 @@
                 Each team can contribute their expertise and
                 domain knowledge in the process
               </li>
-              <li>
+              <!-- <li>
                 The system can be evolved as the knowledge
                 of each teams increase
-              </li>
+              </li> -->
               <li>
                 Simplify a customer validation process
                 <ul>
@@ -321,16 +322,17 @@
               <ul>
                 <li>
                   The goal of this research is to establish
-                  collaboration between multiple autonomous
-                  teams in a single fraud detection process
-                  as efficiently as possible
+                  a common ground for collaboration between
+                  multiple autonomous teams in a single
+                  fraud detection process as efficiently as
+                  possible
                 </li>
                 <li>
                   The system can help in transforming the
                   fraud detection process to be a
                   collaborative process and each team can
-                  make a contribution by making it more
-                  reliable as their knowledge increases
+                  make a contribution using their expertise
+                  and domain knowledge
                 </li>
                 <li>
                   Simplify it by encapsulating the internal
@@ -392,8 +394,8 @@
               <ul>
                 <li>
                   Fraud (#cite) detection techniques can be
-                  categorized to 2 parts, supervised and
-                  unsupervised
+                  categorized to 2 main categories,
+                  supervised and unsupervised
                 </li>
                 <li>
                   Supervised works by training a model to
@@ -401,46 +403,40 @@
                   fraudulent and non-fraudulent entity
                 </li>
                 <li>
-                  Unsupervised works by specifying an
-                  unusual behavior or attribute of the
-                  certain entity.
+                  Unsupervised specifies an unusual behavior
+                  or attribute of the certain entity.
                 </li>
                 <li>
                   There are many scientific papers published
                   regarding fraud detection / prevention,
                   suggesting approaches with different
-                  methods and algorithms to create a system
-                  that could predict a fraud case as
-                  accurately as possible
+                  methods and algorithms to predict a fraud
+                  case as accurately as possible
                 </li>
                 <li>
-                  However, this research project intends
-                  neither to come up with a new technique to
-                  better predict a fraud case nor to compete
-                  with the existing service providers, but
-                  rather to explore a possibility of how the
-                  domain knowledge from multiple independent
-                  teams can be combined to produce a
-                  reliable fraud detection system
+                  This research project is not intented to
+                  come up with a new technique to better
+                  predict a fraud case, but rather to design
+                  a system that can facilitate collaboration
+                  between multiple teams
+                </li>
+                <li>
+                  Rule-based approach is used as the fraud
+                  detection technique of choice in this
+                  project. Its is an unsupervised fraud
+                  detection technique and can be useful when
+                  there's not much prior knowledge on how a
+                  fraudulent entity might be
                 </li>
                 <li>
                   Rule based is not the perfect method,
                   difficult to manage, and the rules have to
-                  be adapted
+                  be adapted as time goes
                 </li>
                 <li>
-                  Rule based can be useful when there's not
-                  much prior knowledge on how a fraudulent
-                  entity might be
-                </li>
-                <li>
-                  Used unsupervised method, rule based
-                  detection
-                </li>
-                <li>
-                  Chosen rule based because it's the
-                  simplest form to implement, and it is the
-                  most suitable method to collaborate on
+                  But it is the simplest technique to
+                  implement, and it has the highest
+                  potential for collaboration
                 </li>
               </ul>
             </aside>
@@ -450,9 +446,8 @@
         <section>
           <div class="wrapper">
             <h2>Use Cases</h2>
-            Use case diagram created to visualize the flow
-            of a fraud detection process and the possible
-            use cases of the system
+            Use case diagram created to visualize the
+            possible use cases of the system
             <img
               data-src="./assets/use-case-diagram.png"
               alt=""
@@ -465,9 +460,8 @@
           <div class="wrapper">
             <h2>User Stories</h2>
             User stories are defined by reexamining the use
-            case diagram. The user stories will be the
-            single source of truth for the requirements of
-            the system.
+            case diagram. The user stories act as the main
+            requirements of the system.
 
             <ul class="block mt-8">
               <li class="flex flex-col">
@@ -559,11 +553,10 @@
                 trustworthy“
               </em>
 
-              By analyzing the use case listed above, the
-              possibility to trigger a validation process
-              after each new registration should be
-              implemented, so that the stakeholder can be
-              confident that the user base is trustworthy.
+              A possiblity to trigger a validation process
+              after each registration should be implemented,
+              so that the customers can be validated as soon
+              as possible.
             </div>
 
             <img
@@ -587,24 +580,19 @@
                 necessary actions accordingly“
               </em>
 
-              By further examination of the use case listed
-              above, the following sequence should be
-              implemented:
+              The following sequence should be implemented
+              as a way to notify concerned parties on
+              certain suspicious cases:
 
               <ul class="block mt-8">
-                <li>
-                  A validation process should be executed by
-                  first retrieving the rules created by
-                  multiple teams
-                </li>
                 <li>
                   After a validation process is completed,
                   the system should publish a message to a
                   messaging system
                 </li>
                 <li>
-                  The messaging system should notify its
-                  consumers
+                  The messaging system should then forward
+                  the message to its consumers
                 </li>
                 <li>
                   The message consumers can run certain
@@ -637,10 +625,10 @@
                 communication overhead with other teams”
               </em>
 
-              The user story listed above describes the
-              requirement of the system to provide the
-              possibility to handle all CRUD operations of a
-              validation rule.
+              The system facilitate collaboration by
+              providing each team the possibility to create,
+              read, update and delete their own validation
+              rule.
             </div>
 
             <img
@@ -675,7 +663,7 @@
                 </li>
                 <li>
                   The system can establish a long-lived HTTP
-                  connection to the client throught the
+                  connection to the client through the
                   subscription endpoint
                 </li>
                 <li>
@@ -694,32 +682,6 @@
             alt=""
             style="height: 550px; width: 700px"
           />
-        </section>
-
-        <section>
-          <div class="wrapper">
-            <h2>Additional Features</h2>
-
-            <ul>
-              <li>
-                Running all components can be run as Docker
-                containers using a single command
-              </li>
-              <li>
-                Most configurations can be configured via
-                environment variables
-              </li>
-              <li>Runtime secrets</li>
-              <li>Autocomplete input</li>
-              <li>
-                Testing
-                <ul>
-                  <li>Unit tests</li>
-                  <li>Integration tests</li>
-                </ul>
-              </li>
-            </ul>
-          </div>
         </section>
 
         <section>
@@ -815,13 +777,9 @@
               <div class="right">
                 <ul>
                   <li>Providing an AMQP message broker</li>
-                  <li>
+                  <li class="mb-0">
                     Publish message to AMQP exchange
                     whenever validation process is complete
-                  </li>
-                  <li class="mb-0">
-                    Additional AMQP consumer can be
-                    implemented to run certain actions
                   </li>
                 </ul>
               </div>
@@ -833,13 +791,7 @@
                 <ul>
                   <li>
                     Provided endpoints to create, read,
-                    delete and update validation rules.
-                  </li>
-                  <li class="mb-0">
-                    Provided endpoints to manage
-                    confidential information to be used
-                    during a validation process (e.g. API
-                    keys)
+                    delete and update validation rules
                   </li>
                 </ul>
               </div>
@@ -847,7 +799,7 @@
           </div>
         </section>
 
-        <section>
+        <!-- <section>
           <div class="wrapper">
             <h2>Possible Improvements</h2>
 
@@ -872,7 +824,7 @@
               </ul>
             </aside>
           </div>
-        </section>
+        </section> -->
 
         <section>
           <div class="wrapper">
@@ -912,7 +864,7 @@
       const footer = document.getElementById("footer")
 
       const toggleFooterVisibility = (indexh) => {
-        if ([0, 1, 20].includes(indexh)) {
+        if ([0, 1, 18].includes(indexh)) {
           footer.style.opacity = 0
         } else {
           footer.style.opacity = 1
