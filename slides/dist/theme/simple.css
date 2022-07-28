@@ -21,7 +21,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   --r-main-color: #000;
   --r-block-margin: 20px;
   --r-heading-margin: 0 0 20px 0;
-  --r-heading-font: News Cycle, Impact, sans-serif;
+  /* --r-heading-font: News Cycle, Impact, sans-serif; */
   --r-heading-color: #4a4;
   --r-heading-line-height: 1.2;
   --r-heading-letter-spacing: normal;
@@ -29,8 +29,8 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   --r-heading-text-shadow: none;
   --r-heading-font-weight: normal;
   --r-heading1-text-shadow: none;
-  --r-heading1-size: 64px;
-  --r-heading2-size: 48px;
+  --r-heading1-size: 60px;
+  --r-heading2-size: 40px;
   --r-heading3-size: 1.55em;
   --r-heading4-size: 1em;
   --r-code-font: monospace;
