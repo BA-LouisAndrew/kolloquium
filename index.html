@@ -41,12 +41,28 @@
         li {
           @apply mb-4;
         }
+
         td {
           /* @apply border border-slate-600 border-solid; */
         }
 
         em {
           @apply block mt-4 mb-8 text-gray-600;
+        }
+
+        li ul {
+          margin-top: 16px !important;
+          margin-left: 16px !important;
+          @apply text-sm;
+        }
+
+        a {
+          color: black !important;
+        }
+
+        h1,
+        h2 {
+          @apply font-serif text-emerald-500;
         }
       }
 
@@ -56,8 +72,36 @@
         @apply flex flex-col px-16;
       }
 
+      .wrapper h2,
+      .wrapper {
+        @apply text-left;
+      }
+
       .wrapper img {
         @apply block;
+      }
+
+      .evaluation > div {
+        @apply py-4 px-2 text-sm;
+      }
+
+      .evaluation .left {
+        @apply col-span-1 border-b border-solid border-black pr-4;
+      }
+
+      .evaluation .right {
+        @apply col-span-3 border-b border-solid border-black;
+      }
+
+      .slide-number {
+        transform: scale(1.5) translateX(-25%)
+          translateY(-25%);
+        background-color: transparent !important;
+      }
+
+      .slide-number a {
+        color: theme(colors.emerald.400) !important;
+        @apply font-bold;
       }
     </style>
 
@@ -109,6 +153,9 @@
               1. Supervisor: Prof. Dr. Christin Schmidt
             </span>
             <span>2. Supervisor: MSc. Tobias Dumke</span>
+            <span class="text-sm block mt-8"
+              >02.08.2022</span
+            >
           </div>
         </section>
 
@@ -120,23 +167,23 @@
               <li><a href="#/2">Motivation</a></li>
               <li><a href="#/3">Goal</a></li>
               <li><a href="#/4">Analysis</a></li>
-              <li><a href="#/6">Use Cases</a></li>
-              <li><a href="#/7">User Stories</a></li>
-              <li><a href="#/8">System Architecture</a></li>
+              <li><a href="#/5">Use Cases</a></li>
+              <li><a href="#/6">User Stories</a></li>
+              <li><a href="#/7">System Architecture</a></li>
               <li>
-                <a href="#/9">Software Architecture</a>
+                <a href="#/8">Software Architecture</a>
               </li>
               <li>
-                Sequences
+                Features
                 <ul class="block mt-2">
                   <li>
-                    <a href="#/10">
+                    <a href="#/9">
                       Customer Validation on a Registration
                       Event
                     </a>
                   </li>
                   <li>
-                    <a href="#/11">
+                    <a href="#/10">
                       Notification on Suspicious Cases
                     </a>
                   </li>
@@ -152,132 +199,255 @@
                   </li>
                 </ul>
               </li>
-              <li><a href="#/14">Result</a></li>
-              <li><a href="#/15">Evaluation</a></li>
-              <li><a href="#/16">Outlook</a></li>
+              <li>
+                <a href="#/15">Calculating a Fraud Score</a>
+              </li>
+              <li><a href="#/16">Evaluation</a></li>
+              <!-- <li>
+                <a href="#/17">Possible Improvements</a>
+              </li> -->
             </ol>
           </div>
         </section>
 
         <section>
-          <div class="wrapper">
-            <h2>Motivation</h2>
+          <div class="wrapper items-center">
+            <h2 class="block w-full text-left">
+              Motivation
+            </h2>
             <ul>
               <li>
-                Fraud activity is an unlawful action, where
-                someone intentionally deceives other person
-                or system for their own profit
+                Fraud activities can damage a company's
+                brand and profits
               </li>
               <li>
-                Fraud prevention is a serious matter, FTC
-                reported 70% increase in fraud activities in
-                2021, compared to 2020 (#cite)
+                70% increase in fraud activities in 2021,
+                compared to 2020 [<a href="#/19">1</a>]
               </li>
               <li>
-                Large businesses usually are built upon
-                multiple teams that have their own
+                Large businesses usually built upon multiple
+                independent teams with different
                 responsibility and expertise
               </li>
-              <li>
-                The independent teams have their own
-                preferences and practices. They even might
-                have a different idea on how a fraudulent
-                customer might be
-              </li>
             </ul>
+
+            <img
+              class="my-0"
+              data-src="./assets/graph.png"
+              alt=""
+              style="height: 350px; width: 500px"
+            />
+            <small>
+              Source:
+              <a
+                href="https://public.tableau.com/app/profile/federal.trade.commission/viz/TheBigViewAllSentinelReports/TrendsOverTime"
+                target="_blank"
+              >
+                https://public.tableau.com/app/profile/federal.trade.commission/viz/TheBigViewAllSentinelReports/TrendsOverTime</a
+              >
+            </small>
+
+            <aside class="notes">
+              <ul>
+                <li>
+                  Fraud activity is an unlawful action,
+                  where someone intentionally deceives other
+                  person or system for their own profit
+                </li>
+                <li>
+                  It impacts businesses, inflicting damage
+                  on the company's brand and its profit
+                </li>
+                <li>
+                  The US Federal Trade Commission (FTC)
+                  reported 70% increase in fraud activities
+                  in 2021, compared to 2020 (#cite)
+                </li>
+                <li>
+                  This research project is aimed to help
+                  large businesses detect fraud activities.
+                  However, large businesses are usually
+                  built upon multiple teams that have their
+                  own responsibility and expertise
+                </li>
+                <li>
+                  The independent teams have their own
+                  preferences and practices. They even might
+                  have a different idea on how a fraudulent
+                  customer might be
+                </li>
+                <!-- <li>
+                  One team might be an expert in customer
+                  registration flow, while another team
+                </li> -->
+              </ul>
+            </aside>
           </div>
         </section>
 
         <section>
           <div class="wrapper">
             <h2>Goal</h2>
-            <ul>
-              <li>
-                The goal of this research is to establish
-                collaboration between multiple autonomous
-                teams in a single fraud detection process as
-                efficiently as possible
-              </li>
-              <li>
-                The system can help in transforming the
-                fraud detection process to be a
-                collaborative process and each team can make
-                a contribution by making it more reliable as
-                their knowledge increases
-              </li>
-              <li>
-                Simplify it by encapsulating the internal
-                logic while presenting the result in an
-                understandable format
-              </li>
-              <li>
-                Notifying the concerned parties on certain
-                cases when needed
-              </li>
-            </ul>
-          </div>
-        </section>
 
-        <section>
-          <div class="wrapper">
-            <h2>Analysis</h2>
             <ul>
               <li>
-                Fraud (#cite) detection techniques can be
-                categorized to 2 parts, supervised and
-                unsupervised
-              </li>
-              <li>
-                Lots of researches on how to detect fraud
-                better, more accurate
-              </li>
-              <li>
-                Rule based is not the perfect method,
-                difficult to manage, and the rules have to
-                be adapted
-              </li>
-              <li>
-                Rule based can be useful when there's not
-                much prior knowledge on how a fraudulent
-                entity might be
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <section>
-          <div class="wrapper">
-            <h2>Analysis</h2>
-            <ul>
-              <li>
-                Project don't want to compete with them,
-                won't come up with a better algorithm to
-                predict fraud
-              </li>
-              <li>
-                Project only explores the possibility of
-                collaboration between teams in a fraud
+                Establish a common ground for collaboration
+                between multiple teams in a single fraud
                 detection process
               </li>
               <li>
-                Used unsupervised method, rule based
-                detection
+                Each team can contribute their expertise and
+                domain knowledge in the process
               </li>
+              <!-- <li>
+                The system can be evolved as the knowledge
+                of each teams increase
+              </li> -->
               <li>
-                Chosen rule based because it's the simplest
-                form to implement, and it is the most
-                suitable method to collaborate on
+                Simplify a customer validation process
+                <ul>
+                  <li>Encapsulating the internal logic</li>
+                  <li>
+                    Presenting the validation result in an
+                    understandable format
+                  </li>
+                  <li>
+                    Notifying concerned parties if necessary
+                  </li>
+                </ul>
               </li>
             </ul>
+
+            <aside class="notes">
+              <ul>
+                <li>
+                  The goal of this research is to establish
+                  a common ground for collaboration between
+                  multiple autonomous teams in a single
+                  fraud detection process as efficiently as
+                  possible
+                </li>
+                <li>
+                  The system can help in transforming the
+                  fraud detection process to be a
+                  collaborative process and each team can
+                  make a contribution using their expertise
+                  and domain knowledge
+                </li>
+                <li>
+                  Simplify it by encapsulating the internal
+                  logic while presenting the result in an
+                  understandable format
+                </li>
+                <li>
+                  Notifying the concerned parties on certain
+                  cases when needed
+                </li>
+              </ul>
+            </aside>
+          </div>
+        </section>
+
+        <section>
+          <div class="wrapper">
+            <h2>Analysis</h2>
+            <ul>
+              <li>
+                Fraud detection techniques can be
+                categorized to two categories:
+                <ul>
+                  <li>Supervised</li>
+                  <li>Unsupervised</li>
+                </ul>
+              </li>
+              <li>
+                The intent of this research project is
+                <ul>
+                  <li>
+                    <b>Not</b> to come up with a better way
+                    to predict a fraud
+                  </li>
+                  <li>
+                    But to design a system that can
+                    facilitate collaboration between
+                    multiple teams in a fraud detection
+                    process
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Rule-based approach is used as the fraud
+                detection technique of choice in this
+                project
+
+                <ul>
+                  <li>Has some disadvantages</li>
+                  <li>
+                    But is the simplest to implement and has
+                    the highest potential for collaboration
+                  </li>
+                </ul>
+              </li>
+            </ul>
+
+            <aside class="notes">
+              <ul>
+                <li>
+                  Fraud (#cite) detection techniques can be
+                  categorized to 2 main categories,
+                  supervised and unsupervised
+                </li>
+                <li>
+                  Supervised works by training a model to
+                  make a clear distinction between a
+                  fraudulent and non-fraudulent entity
+                </li>
+                <li>
+                  Unsupervised specifies an unusual behavior
+                  or attribute of the certain entity.
+                </li>
+                <li>
+                  There are many scientific papers published
+                  regarding fraud detection / prevention,
+                  suggesting approaches with different
+                  methods and algorithms to predict a fraud
+                  case as accurately as possible
+                </li>
+                <li>
+                  This research project is not intented to
+                  come up with a new technique to better
+                  predict a fraud case, but rather to design
+                  a system that can facilitate collaboration
+                  between multiple teams
+                </li>
+                <li>
+                  Rule-based approach is used as the fraud
+                  detection technique of choice in this
+                  project. Its is an unsupervised fraud
+                  detection technique and can be useful when
+                  there's not much prior knowledge on how a
+                  fraudulent entity might be
+                </li>
+                <li>
+                  Rule based is not the perfect method,
+                  difficult to manage, and the rules have to
+                  be adapted as time goes
+                </li>
+                <li>
+                  But it is the simplest technique to
+                  implement, and it has the highest
+                  potential for collaboration
+                </li>
+              </ul>
+            </aside>
           </div>
         </section>
 
         <section>
           <div class="wrapper">
             <h2>Use Cases</h2>
-            Use case diagram created to visualize the flow
-            of a fraud detection process and the possible
-            use cases of the system
+            Use case diagram created to visualize the
+            possible use cases of the system
             <img
               data-src="./assets/use-case-diagram.png"
               alt=""
@@ -290,42 +460,41 @@
           <div class="wrapper">
             <h2>User Stories</h2>
             User stories are defined by reexamining the use
-            case diagram. The user stories will be the
-            single source of truth for the requirements of
-            the system.
+            case diagram. The user stories act as the main
+            requirements of the system.
 
             <ul class="block mt-8">
               <li class="flex flex-col">
                 <strong>Verifying Customer Early </strong>
-                <div class="mt-2">
-                  "As a stakeholder, I want to verify
+                <em class="mt-2 mb-0">
+                  “As a stakeholder, I want to verify
                   customers, so that the company can have
                   more confidence that the existing user
-                  base is trustworthy"
-                </div>
+                  base is trustworthy“
+                </em>
               </li>
               <li class="flex flex-col">
                 <strong>
                   Notification on Suspicious Cases
                 </strong>
-                <div class="mt-2">
-                  As an employee, I want to be notified when
-                  a user seems suspicious, so that I can do
-                  necessary actions accordingly
-                </div>
+                <em class="mt-2 mb-0">
+                  “As an employee, I want to be notified
+                  when a user seems suspicious, so that I
+                  can do necessary actions accordingly“
+                </em>
               </li>
 
               <li class="flex flex-col">
                 <strong>
                   Validation Rules Management
                 </strong>
-                <div class="mt-2">
-                  As an employee, I want to manage my own
+                <em class="mt-2 mb-0">
+                  “As an employee, I want to manage my own
                   rule to validate users, so that I can use
                   my expertise to find suspicious customers
                   as efficiently as possible without the
-                  communication overhead with other teams
-                </div>
+                  communication overhead with other teams“
+                </em>
               </li>
             </ul>
           </div>
@@ -371,9 +540,9 @@
 
         <section>
           <div class="wrapper items-center">
-            <h2>
-              Sequence: Customer Validation on a
-              Registration Event
+            <h2 class="block text-left">
+              Feature: Customer Validation on a Registration
+              Event
             </h2>
 
             <div>
@@ -384,11 +553,10 @@
                 trustworthy“
               </em>
 
-              By analyzing the use case listed above, the
-              possibility to trigger a validation process
-              after each new registration should be
-              implemented, so that the stakeholder can be
-              confident that the user base is trustworthy.
+              A possiblity to trigger a validation process
+              after each registration should be implemented,
+              so that the customers can be validated as soon
+              as possible.
             </div>
 
             <img
@@ -402,7 +570,7 @@
         <section>
           <div class="wrapper">
             <h2>
-              Sequence: Notification on Suspicious Cases
+              Feature: Notification on Suspicious Cases
             </h2>
 
             <div>
@@ -412,24 +580,19 @@
                 necessary actions accordingly“
               </em>
 
-              By further examination of the use case listed
-              above, the following sequence should be
-              implemented:
+              The following sequence should be implemented
+              as a way to notify concerned parties on
+              certain suspicious cases:
 
               <ul class="block mt-8">
-                <li>
-                  A validation process should be executed by
-                  first retrieving the rules created by
-                  multiple teams
-                </li>
                 <li>
                   After a validation process is completed,
                   the system should publish a message to a
                   messaging system
                 </li>
                 <li>
-                  The messaging system should notify its
-                  consumers
+                  The messaging system should then forward
+                  the message to its consumers
                 </li>
                 <li>
                   The message consumers can run certain
@@ -445,13 +608,13 @@
           <img
             data-src="./assets/sequence-notification.png"
             alt=""
-            style="height: 500px; width: 700px"
+            style="height: 550px; width: 700px"
           />
         </section>
 
         <section>
           <div class="wrapper items-center">
-            <h2>Sequence: Managing Validation Rules</h2>
+            <h2>Feature: Managing Validation Rules</h2>
 
             <div>
               <em>
@@ -462,10 +625,10 @@
                 communication overhead with other teams”
               </em>
 
-              The user story listed above describes the
-              requirement of the system to provide the
-              possibility to handle all CRUD operations of a
-              validation rule.
+              The system facilitate collaboration by
+              providing each team the possibility to create,
+              read, update and delete their own validation
+              rule.
             </div>
 
             <img
@@ -478,7 +641,7 @@
 
         <section>
           <div class="wrapper">
-            <h2>Sequence: Validation Real-Time Progress</h2>
+            <h2>Feature: Validation Real-Time Progress</h2>
 
             <div>
               Even though the user should receive a
@@ -500,7 +663,7 @@
                 </li>
                 <li>
                   The system can establish a long-lived HTTP
-                  connection to the client throught the
+                  connection to the client through the
                   subscription endpoint
                 </li>
                 <li>
@@ -522,118 +685,168 @@
         </section>
 
         <section>
-          <div class="wrapper">
-            <h2>Result</h2>
+          <div class="wrapper items-center">
+            <h2>Calculating a Fraud Score</h2>
 
+            <img
+              data-src="./assets/flow.png"
+              alt=""
+              style="height: 450px; width: 300px"
+            />
+          </div>
+
+          <aside class="notes">
             <ul>
               <li>
-                Docker compose, all components can be run as
-                Docker containers in one command
+                Keyword: calculating a simple moving average
               </li>
               <li>
-                Most configurations can be configured via
-                environment variables (no need to touch
-                code)
+                Nice to resume a validation process that is
+                being paused unexpectedly (e.g. if the
+                system shuts down)
               </li>
               <li>
-                Additional necessary features that are
-                discovered during the implementation process
-                is implemented
+                4 rules, with scores of [0.5, 0.5, 1, 0.5]
+                fail score each
               </li>
+              <li>second rule pass, rule 1 and 3 failed</li>
               <li>
-                Testing (SW built with TDD), try to test as
-                much as possible
+                If we only count the average fraud score it
+                would be:
+
+                <ul>
+                  <li>Begin: 0</li>
+                  <li>Rule 1: 0.5</li>
+                  <li>Rule 2: 0.25</li>
+                  <li>Rule 3: 0,417</li>
+                  <li>Rule 4: 0,10425</li>
+                </ul>
+              </li>
+
+              <li>
+                If we use list base
+                <ul>
+                  <li>Begin: []</li>
+                  <li>[0.5]</li>
+                  <li>[0.5, 0]</li>
+                  <li>[0.5, 0, 1]</li>
+                  <li>[0.5, 0, 1, 0]</li>
+                  <li>AVG: 0.375</li>
+                </ul>
               </li>
             </ul>
-          </div>
+          </aside>
         </section>
 
         <section>
           <div class="wrapper">
             <h2>Evaluation</h2>
 
-            <div
-              class="table w-full border border-spacing-2 border-solid border-gray-500 border-collapse"
-            >
-              <table class="table-auto">
-                <thead>
-                  <tr>
-                    <th>User Story</th>
-                    <th>Implementation</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      As a stakeholder, I want to verify
-                      users, so that the company can have
-                      more confidence that the existing user
-                      base is trustworthy
-                    </td>
-                    <td>
-                      Providing an HTTP endpoint to trigger
-                      a validation process based on its
-                      request body and asynchronously
-                      returning a validation result that
-                      contains a numerical value to
-                      determine the probability of the
-                      customer being a fraud
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      As an employee, I want to be notified
-                      when a user seems suspicious, so that
-                      I can do necessary actions accordingly
-                    </td>
-                    <td>
-                      Providing an AMQP message broker and
-                      publishing the message to an AMQP
-                      exchange whenever a validation process
-                      is completed. An additional AMQP
-                      message consumer can be implemented to
-                      send the necessary notification
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      As an employee, I want to manage my
-                      own rule to validate users, so that I
-                      can use my expertise to find
-                      suspicious customers as efficiently as
-                      possible without the communication
-                      overhead with other teams
-                    </td>
-                    <td>
-                      Providing endpoints to create, read,
-                      delete and update validation rules.
-                      Additionally, endpoints to create and
-                      delete runtime secrets to store
-                      confidential information (such as API
-                      keys) are also implemented
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="grid grid-cols-4 evaluation">
+              <div
+                class="left font-bold border-b-2 text-base bg-green-200 rounded-tl-md"
+              >
+                Title of User Story
+              </div>
+              <div
+                class="right font-bold border-b-2 text-base bg-green-200 rounded-tr-md"
+              >
+                Implementation
+              </div>
+
+              <div class="left">
+                Verifying Customer Early
+              </div>
+              <div class="right">
+                <ul>
+                  <li>
+                    Provide HTTP endpoint to trigger a
+                    validation process
+                  </li>
+                  <li class="mb-0">
+                    Returning a probability of the customer
+                    being a fraud at the end of a validation
+                    process
+                  </li>
+                </ul>
+              </div>
+
+              <div class="left">
+                Notification on Suspicious Cases
+              </div>
+              <div class="right">
+                <ul>
+                  <li>Providing an AMQP message broker</li>
+                  <li class="mb-0">
+                    Publish message to AMQP exchange
+                    whenever validation process is complete
+                  </li>
+                </ul>
+              </div>
+
+              <div class="left">
+                Validation Rules Management
+              </div>
+              <div class="right">
+                <ul>
+                  <li>
+                    Provided endpoints to create, read,
+                    delete and update validation rules
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </section>
 
+        <!-- <section>
+          <div class="wrapper">
+            <h2>Possible Improvements</h2>
+
+            <ul>
+              <li>Authentication</li>
+              <li>Data security</li>
+              <li>GDPR compliance</li>
+            </ul>
+
+            <aside class="notes">
+              <ul>
+                <li>
+                  Hoped that this system can establish a
+                  common ground for autonomous teams to
+                  collaborate on a fraud detection process
+                </li>
+                <li>
+                  Not ready to be used in a real world
+                  scenario out of the box, more improvement
+                  such as data security and GDPR needed
+                </li>
+              </ul>
+            </aside>
+          </div>
+        </section> -->
+
         <section>
           <div class="wrapper">
-            <h2>Outlook</h2>
-            <ul>
-              <li>
-                Hoped that this system can establish a
-                common ground for autonomous teams to
-                collaborate on a fraud detection process
-              </li>
-              <li>
-                Not ready to be used in a real world
-                scenario out of the box, more improvement
-                such as data security and GDPR needed
-              </li>
-            </ul>
+            <h2>Sources</h2>
+
+            <div class="flex">
+              <div class="pr-8">[1]</div>
+              <div>
+                <span class="italic">
+                  New Data Shows FTC Received 2.8 Million
+                  Fraud Reports from Consumers in 2021.
+                </span>
+                Online:
+                <a
+                  href="https://www.ftc.gov/news-events/news/press-releases/2022/02/"
+                  target="_blank"
+                  >https://www.ftc.gov/news-events/news/press-releases/2022/02/</a
+                >
+                new-data-shows-ftc-received-28-million-fraud-reports-consumers-2021-
+                0; latest access: 01 VII 22. Feb. 2022.
+              </div>
+            </div>
           </div>
         </section>
 
@@ -651,7 +864,7 @@
       const footer = document.getElementById("footer")
 
       const toggleFooterVisibility = (indexh) => {
-        if ([0, 1, 17].includes(indexh)) {
+        if ([0, 1, 18].includes(indexh)) {
           footer.style.opacity = 0
         } else {
           footer.style.opacity = 1
@@ -661,6 +874,7 @@
       Reveal.initialize({
         hash: true,
         slideNumber: "c/t",
+        controls: false,
         plugins: [
           RevealMarkdown,
           RevealHighlight,
