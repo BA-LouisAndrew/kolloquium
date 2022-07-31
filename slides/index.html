@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="dist/reset.css" />
     <link rel="stylesheet" href="dist/reveal.css" />
     <link rel="stylesheet" href="dist/theme/simple.css" />
+    <link
+      rel="stylesheet"
+      href="plugin/drawer/drawer.css"
+    />
 
     <!-- Theme used for syntax highlighted code -->
     <link
@@ -100,7 +104,6 @@
       }
 
       .slide-number a {
-        color: theme(colors.emerald.400) !important;
         @apply font-bold;
       }
     </style>
@@ -116,6 +119,11 @@
       .header img {
         height: 50px;
         width: 208px;
+      }
+
+      .revealjs-drawer-menu {
+        left: 700px;
+        transform: scale(0.8);
       }
     </style>
   </head>
@@ -153,9 +161,9 @@
               1. Supervisor: Prof. Dr. Christin Schmidt
             </span>
             <span>2. Supervisor: MSc. Tobias Dumke</span>
-            <span class="text-sm block mt-8"
-              >02.08.2022</span
-            >
+            <span class="text-sm block mt-8">
+              02.08.2022
+            </span>
           </div>
         </section>
 
@@ -166,13 +174,23 @@
             <ol>
               <li><a href="#/2">Motivation</a></li>
               <li><a href="#/3">Goal</a></li>
-              <li><a href="#/4">Analysis</a></li>
-              <li><a href="#/5">Use Cases</a></li>
-              <li><a href="#/6">User Stories</a></li>
-              <li><a href="#/7">System Architecture</a></li>
               <li>
-                <a href="#/8">Software Architecture</a>
+                Analysis
+                <ul>
+                  <li>
+                    <a href="#/4">State of the Art</a>
+                  </li>
+                  <li><a href="#/5">Use Cases</a></li>
+                  <li><a href="#/6">User Stories</a></li>
+                  <li>
+                    <a href="#/7">System Architecture</a>
+                  </li>
+                  <li>
+                    <a href="#/8">Software Architecture</a>
+                  </li>
+                </ul>
               </li>
+
               <li>
                 Features
                 <ul class="block mt-2">
@@ -197,11 +215,14 @@
                       Validation Real-Time Progress
                     </a>
                   </li>
+                  <li>
+                    <a href="#/15">
+                      Calculating a Fraud Score
+                    </a>
+                  </li>
                 </ul>
               </li>
-              <li>
-                <a href="#/15">Calculating a Fraud Score</a>
-              </li>
+
               <li><a href="#/16">Evaluation</a></li>
               <!-- <li>
                 <a href="#/17">Possible Improvements</a>
@@ -222,7 +243,7 @@
               </li>
               <li>
                 70% increase in fraud activities in 2021,
-                compared to 2020 [<a href="#/19">1</a>]
+                compared to 2020 [<a href="#/18">1</a>]
               </li>
               <li>
                 Large businesses usually built upon multiple
@@ -248,7 +269,7 @@
             </small>
 
             <aside class="notes">
-              <ul>
+              <ul class="text-sm">
                 <li>
                   Fraud activity is an unlawful action,
                   where someone intentionally deceives other
@@ -311,9 +332,9 @@
                     Presenting the validation result in an
                     understandable format
                   </li>
-                  <li>
+                  <!-- <li>
                     Notifying concerned parties if necessary
-                  </li>
+                  </li> -->
                 </ul>
               </li>
             </ul>
@@ -339,10 +360,10 @@
                   logic while presenting the result in an
                   understandable format
                 </li>
-                <li>
+                <!-- <li>
                   Notifying the concerned parties on certain
                   cases when needed
-                </li>
+                </li> -->
               </ul>
             </aside>
           </div>
@@ -350,11 +371,12 @@
 
         <section>
           <div class="wrapper">
-            <h2>Analysis</h2>
+            <h2>State of the Art</h2>
             <ul>
               <li>
                 Fraud detection techniques can be
-                categorized to two categories:
+                categorized to two categories
+                <a href="#/18">[2]</a>:
                 <ul>
                   <li>Supervised</li>
                   <li>Unsupervised</li>
@@ -381,10 +403,13 @@
                 project
 
                 <ul>
-                  <li>Has some disadvantages</li>
+                  <li>
+                    Has some disadvantages: can be difficult
+                    to manage, rules have to be adapted
+                  </li>
                   <li>
                     But is the simplest to implement and has
-                    the highest potential for collaboration
+                    a potential to enable collaboration
                   </li>
                 </ul>
               </li>
@@ -424,9 +449,10 @@
                   Rule-based approach is used as the fraud
                   detection technique of choice in this
                   project. Its is an unsupervised fraud
-                  detection technique and can be useful when
+                  detection technique.
+                  <!-- and can be useful when
                   there's not much prior knowledge on how a
-                  fraudulent entity might be
+                  fraudulent entity might be -->
                 </li>
                 <li>
                   Rule based is not the perfect method,
@@ -454,6 +480,34 @@
               style="height: 300px"
             />
           </div>
+
+          <aside class="notes">
+            <ul>
+              <li>
+                Use case diagram created to visualize the
+                possible use cases of the system and its
+                actors
+              </li>
+              <li>
+                For example, a customer can register
+                themselves, and during the registration
+                process, the customer data validation should
+                be included as part of the flow
+              </li>
+              <li>
+                Whenever a fraudulent customer is
+                identified, a notification will be sent to
+                concerned parties, so that necessary actions
+                (for example, blocking the customer) can be
+                taken as soon as possible
+              </li>
+              <li>
+                There is also the use case of a team member
+                creating a validation rule, to be used
+                during the validation process itself
+              </li>
+            </ul>
+          </aside>
         </section>
 
         <section>
@@ -498,6 +552,21 @@
               </li>
             </ul>
           </div>
+
+          <aside class="notes">
+            <ul>
+              <li>
+                From the use case diagram listed before, the
+                primary user stories can be defined
+              </li>
+              <li>
+                The user stories act as the primary
+                requirement of the system. The features of
+                the system will be built upon these
+                requirements
+              </li>
+            </ul>
+          </aside>
         </section>
 
         <section>
@@ -508,7 +577,7 @@
               <div class="mb-6">
                 A system architecture diagram describes each
                 component of the system and the interaction
-                between each component
+                between each component.
               </div>
               <img data-src="./assets/system.png" alt="" />
             </div>
@@ -522,8 +591,8 @@
             <div class="flex flex-col items-center">
               <div class="mb-6">
                 Software architecture diagram is created to
-                better visualize the structure, functions
-                and role of each component
+                better visualize the functions and role of
+                each component.
               </div>
               <img
                 data-src="./assets/sw-arc--updated.png"
@@ -536,13 +605,28 @@
               />
             </div>
           </div>
+
+          <aside class="notes">
+            <ul>
+              <li>
+                Software architecture diagram is created to
+                better visualize the functions and role of
+                each component
+              </li>
+              <li>
+                The software architecture diagram is an
+                extended version of the system architecture
+                diagram. But here, the primary functions of
+                each component are defined
+              </li>
+            </ul>
+          </aside>
         </section>
 
         <section>
           <div class="wrapper items-center">
             <h2 class="block text-left">
-              Feature: Customer Validation on a Registration
-              Event
+              Customer Validation on a Registration Event
             </h2>
 
             <div>
@@ -565,13 +649,17 @@
               style="height: 200px; width: 334px"
             />
           </div>
+
+          <aside class="notes">
+            <ul>
+              <li></li>
+            </ul>
+          </aside>
         </section>
 
         <section>
           <div class="wrapper">
-            <h2>
-              Feature: Notification on Suspicious Cases
-            </h2>
+            <h2>Notification on Suspicious Cases</h2>
 
             <div>
               <em>
@@ -596,8 +684,9 @@
                 </li>
                 <li>
                   The message consumers can run certain
-                  actions independently if needed (such as
-                  sending an email to alert a team member)
+                  actions <b>independently</b> if needed
+                  (such as sending an email to alert a team
+                  member)
                 </li>
               </ul>
             </div>
@@ -614,7 +703,7 @@
 
         <section>
           <div class="wrapper items-center">
-            <h2>Feature: Managing Validation Rules</h2>
+            <h2>Managing Validation Rules</h2>
 
             <div>
               <em>
@@ -641,10 +730,10 @@
 
         <section>
           <div class="wrapper">
-            <h2>Feature: Validation Real-Time Progress</h2>
+            <h2>Validation Real-Time Progress</h2>
 
             <div>
-              Even though the user should receive a
+              Even though the user can receive a
               notification on certain cases, there might be
               times when a user wants to intentionally
               monitor the progress of a validation process.
@@ -841,10 +930,24 @@
                 <a
                   href="https://www.ftc.gov/news-events/news/press-releases/2022/02/"
                   target="_blank"
-                  >https://www.ftc.gov/news-events/news/press-releases/2022/02/</a
+                >
+                  https://www.ftc.gov/news-events/news/press-releases/2022/02/</a
                 >
                 new-data-shows-ftc-received-28-million-fraud-reports-consumers-2021-
                 0; latest access: 01 VII 22. Feb. 2022.
+              </div>
+            </div>
+
+            <div class="flex mt-4">
+              <div class="pr-8">[2]</div>
+              <div>
+                Richard Bolton and David Hand. “Unsupervised
+                Profiling Methods for Fraud Detection”. In:
+                <span class="italic">
+                  Conference on Credit Scoring and Credit
+                  Control 7
+                </span>
+                (Sept. 2001).
               </div>
             </div>
           </div>
@@ -860,6 +963,8 @@
     <script src="plugin/notes/notes.js"></script>
     <script src="plugin/markdown/markdown.js"></script>
     <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/drawer/drawer.js"></script>
+
     <script>
       const footer = document.getElementById("footer")
 
@@ -875,10 +980,17 @@
         hash: true,
         slideNumber: "c/t",
         controls: false,
+        drawer: {
+          toggleDrawKey: "d", // (optional) key to enable drawing, default "d"
+          toggleBoardKey: "t", // (optional) key to show drawing board, default "t"
+          colors: ["#FF0000"], // (optional) list of colors avaiable (hex color codes)
+          pathSize: 2,
+        },
         plugins: [
           RevealMarkdown,
           RevealHighlight,
           RevealNotes,
+          RevealDrawer,
         ],
       }).then(() => {
         const state = Reveal.getState()
